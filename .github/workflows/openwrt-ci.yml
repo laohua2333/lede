@@ -5,7 +5,7 @@ on:
     branches: 
       - master
   schedule:
-    - cron: 30 00 * * *
+    - cron:  00 00 * * *
   release:
     types: [published]
 
@@ -38,6 +38,9 @@ jobs:
           sudo -E apt-get -y autoremove --purge
           sudo -E apt-get clean
           df -h
+      - name: Sync upstream source code
+        run: |
+          git pull
       - name: Update feeds
         run: |
           ./scripts/feeds update -a
