@@ -12,9 +12,9 @@
  			       struct list_head *br_ip_list);
 --- a/include/linux/skbuff.h
 +++ b/include/linux/skbuff.h
-@@ -912,6 +912,10 @@ struct sk_buff {
- #endif
+@@ -915,6 +915,10 @@ struct sk_buff {
  	__u8			slow_gro:1;
+ 	__u8			scm_io_uring:1;
  
 +#ifdef CONFIG_SHORTCUT_FE
 +	__u8			fast_forwarded:1;
@@ -49,7 +49,7 @@
  				   const struct nf_ct_event_notifier *nb);
 --- a/net/Kconfig
 +++ b/net/Kconfig
-@@ -456,6 +456,9 @@ config FAILOVER
+@@ -469,6 +469,9 @@ config FAILOVER
  	  migration of VMs with direct attached VFs by failing over to the
  	  paravirtual datapath when the VF is unplugged.
  
