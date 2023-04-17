@@ -32,7 +32,7 @@ jobs:
         run: |
           docker rmi `docker images -q`
           sudo -E apt-get autoremove --purge
-          sudo echo 'deb http://security.ubuntu.com/ubuntu focal-security main' >> /etc/apt/sources.list
+          sudo sh -c 'echo "deb http://security.ubuntu.com/ubuntu focal-security main" >> /etc/apt/sources.list'
           sudo -E apt-get autoremove
           sudo -E apt update -y
           sudo -E full-upgrade -y
